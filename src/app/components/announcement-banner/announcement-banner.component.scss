@@ -1,0 +1,21 @@
+@forward '../../../theme/fonts/poppins.css';
+
+ion-toolbar {
+  --ion-color-base: #f0efe8 !important;
+}
+
+.announcement-content {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+ion-title {
+  text-align: center;
+  font-family: Poppins;
+  color: #3f3320;
+}
+
+ion-title {
+  font-size: 16px;
+}
