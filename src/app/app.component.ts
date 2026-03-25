@@ -12,6 +12,9 @@ import {getUrlParams} from './core/helpers/url';
 import * as CookieConsent from 'vanilla-cookieconsent';
 import {ConsentStatus, ConsentType, FirebaseAnalytics} from '@capacitor-firebase/analytics';
 import {MediaMatcher} from '@angular/cdk/layout';
+import {initializeApp} from 'firebase/app';
+import {getAuth, signInAnonymously, onAuthStateChanged} from 'firebase/auth';
+import {environment} from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -34,6 +37,25 @@ export class AppComponent implements AfterViewInit {
     this.checkURLEmbedding();
     this.updateToolbarColor();
     this.setPageKeyboardClass();
+    this.initFirebaseAuth();
+  }
+
+  private async initFirebaseAuth() {
+    if (!('document' in globalThis)) {
+      return;
+    }
+    try {
+      const app = initializeApp(environment.firebase);
+      const auth = getAuth(app);
+      await signInAnonymously(auth);
+      onAuthStateChanged(auth, user => {
+        if (user) {
+          console.log('Anonymous auth successful:', user.uid);
+        }
+      });
+    } catch (error) {
+      console.error('Anonymous auth failed:', error);
+    }
   }
 
   async ngAfterViewInit() {
