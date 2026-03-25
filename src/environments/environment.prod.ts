@@ -7,6 +7,7 @@ export const environment = {
     storageBucket: 'gen-lang-client-0460519420.appspot.com',
     messagingSenderId: '0',
     appId: '1:0:web:anonymous',
+    clientId: '135934226058-scnh9tmlrahn1p1rcs6d42m6vgkdet72.apps.googleusercontent.com',
   },
   reCAPTCHAKey: '6Ldsxb8oAAAAAGyUZbyd0QruivPSudqAWFygR-4t',
   translationApi: {
