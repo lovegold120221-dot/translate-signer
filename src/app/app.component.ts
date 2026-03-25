@@ -90,7 +90,7 @@ export class AppComponent implements AfterViewInit {
     }
     return CookieConsent.run({
       root: 'body',
-      autoShow: true,
+      autoShow: false,
       hideFromBots: true,
 
       cookie: {
